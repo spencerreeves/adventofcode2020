@@ -15,6 +15,9 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 **Problem 1 (643.984µs):**
 ``` The number of valid passwords is 620```
 
+**Problem 2 (444.195µs):**
+```The number of valid passwords is 727```
+
 ## Full output
 ```
 *****     Advent of Code     *****   
@@ -23,6 +26,7 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 2020/12/01 15:22:57 Day 2, Problem 2 function took 254.255µs. Output => The triple that add up to 2020 is (930, 481, 609). Multiplied together they are 272423970
 **  Day 2  **
 2020/12/02 09:19:27 Day 2, Problem 1 function took 643.984µs. Output => The number of valid passwords is 620.
+2020/12/02 09:42:04 Day 2, Problem 2 function took 444.195µs. Output => The number of valid passwords is 727.
 
 ```
 
