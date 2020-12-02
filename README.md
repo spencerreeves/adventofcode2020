@@ -11,11 +11,19 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 **Problem 2 (254.255µs):**
 ```The triple that add up to 2020 is (930, 481, 609). Multiplied together they are 272423970```
 
+### Day 2
+**Problem 1 (643.984µs):**
+``` The number of valid passwords is 620```
+
 ## Full output
 ```
-*****     Advent of Code     *****     
+*****     Advent of Code     *****   
+**  Day 1 **  
 2020/12/01 15:22:57 Day 1, Problem 1 function took 87.507µs. Output => The pair that add up to 2020 is (1573, 447). Multiplied together they are 703131
 2020/12/01 15:22:57 Day 2, Problem 2 function took 254.255µs. Output => The triple that add up to 2020 is (930, 481, 609). Multiplied together they are 272423970
+**  Day 2  **
+2020/12/02 09:19:27 Day 2, Problem 1 function took 643.984µs. Output => The number of valid passwords is 620.
+
 ```
 
 
