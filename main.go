@@ -4,6 +4,7 @@ import (
 	"./day1"
 	"./day2"
 	"./day3"
+	"./day4"
 	"fmt"
 	"log"
 )
@@ -21,4 +22,7 @@ func main() {
 	fmt.Printf("**  Day 3 **\n")
 	trackFunc("Day 3, Problem 1", day3.Problem1)
 	trackFunc("Day 3, Problem 2", day3.Problem2)
+
+	fmt.Printf("**  Day 4 **\n")
+	trackFunc("Day 4, Problem 1", day4.Problem1)
 }
