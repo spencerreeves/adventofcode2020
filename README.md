@@ -18,6 +18,10 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 **Problem 2 (444.195µs):**
 ```The number of valid passwords is 727```
 
+### Day 3
+**Problem 2 (79.447µs):**
+``` The number of trees in the path is 250.```
+
 ## Full output
 ```
 *****     Advent of Code     *****   
@@ -27,7 +31,8 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 **  Day 2  **
 2020/12/02 09:19:27 Day 2, Problem 1 function took 643.984µs. Output => The number of valid passwords is 620.
 2020/12/02 09:42:04 Day 2, Problem 2 function took 444.195µs. Output => The number of valid passwords is 727.
-
+**  Day 3 **
+2020/12/03 17:15:44 Day 3, Problem 1 function took 79.447µs. Output => The number of trees in the path is 250.
 ```
 
 
