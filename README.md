@@ -28,6 +28,8 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 ### Day 4
 **Problem 1 (587.644µs):**
 ```The number of valid passports (excluding Country ID) is 200.```
+**Problem 2 (895.548µs):**
+```The number of valid passports, excluding Country ID, is 116.```
 
 ## Full output
 ```
@@ -43,6 +45,7 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 2020/12/03 17:59:23 Day 3, Problem 2 function took 97.441µs. Output => The number of trees in each path is [55 250 54 55 39]. Multiplied together: 1592662500
 ** Day 4 **
 2020/12/04 10:51:24 Day 4, Problem 1 function took 587.644µs. Output => The number of valid passports (excluding Country ID) is 200.
+2020/12/04 12:03:58 Day 4, Problem 2 function took 895.548µs. Output => The number of valid passports, excluding Country ID, is 116.
 ```
 
 

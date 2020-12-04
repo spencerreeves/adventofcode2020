@@ -25,4 +25,5 @@ func main() {
 
 	fmt.Printf("**  Day 4 **\n")
 	trackFunc("Day 4, Problem 1", day4.Problem1)
+	trackFunc("Day 4, Problem 2", day4.Problem2)
 }

@@ -4,14 +4,19 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"regexp"
+	"strconv"
 	"strings"
 )
+
+var /* const */ hclReg = regexp.MustCompile("^#[\\da-f]{6}$")
+var /* const */ eclReg = regexp.MustCompile("^(amb|blu|brn|gry|grn|hzl|oth)$")
+var /* const */ pidReg = regexp.MustCompile("^\\d{9}$")
 
 type Passport struct {
 	credentials map[string]string
 	flags uint8
 }
-
 
 func splitKeyValue(s string, sep string) (string, string) {
 	x := strings.Split(s, sep)
@@ -36,7 +41,33 @@ func isValidNorthPoleCredentials(flags uint8) bool {
 	return flags == 0xFF || flags == 0xFE
 }
 
-func getPassports(fileName string, validator func(uint8) bool) (passports []Passport, count int, err error) {
+func alwaysValid(key string, value string) bool {
+	return true
+}
+
+func withinRange(value string, lower int64, upper int64) bool {
+	i, err := strconv.ParseInt(value, 10, 64)
+	return err == nil && i <= upper && i >= lower
+}
+
+func isValidPassportField(key string, value string) bool {
+	switch key {
+	case "byr": return withinRange(value, 1920, 2002)
+	case "iyr": return withinRange(value, 2010, 2020)
+	case "eyr": return withinRange(value, 2020, 2030)
+	case "hgt":
+		unit := value[len(value) - 2:]
+		return unit == "cm" && withinRange(value[:len(value) - 2], 150, 193) ||
+			unit == "in" && withinRange(value[:len(value) - 2], 59, 76)
+	case "hcl": return hclReg.MatchString(value)
+	case "ecl": return eclReg.MatchString(value)
+	case "pid": return pidReg.MatchString(value)
+	case "cid": return true
+	default: return false
+	}
+}
+
+func getPassports(fileName string, isValidPassport func(uint8) bool, isValidKeyPair func(string, string) bool) (passports []Passport, count int, err error) {
 	// Open file
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -63,11 +94,13 @@ func getPassports(fileName string, validator func(uint8) bool) (passports []Pass
 			for entry := range keyValues {
 				key, value := splitKeyValue(keyValues[entry], ":")
 				passport.credentials[key] = value
-				passport.flags = setFlag(key, passport.flags)
+				if isValidKeyPair(key, value) {
+					passport.flags = setFlag(key, passport.flags)
+				}
 			}
 		} else {
 			passports = append(passports, passport)
-			if validator(passport.flags) {
+			if isValidPassport(passport.flags) {
 				count += 1
 			}
 
@@ -88,11 +121,20 @@ func getPassports(fileName string, validator func(uint8) bool) (passports []Pass
 
 // Expedite the passport checking line and hack the system to allow me to enter
 func Problem1() string {
-
-	_, count, err := getPassports("day4/input.txt", isValidNorthPoleCredentials)
+	_, count, err := getPassports("day4/input.txt", isValidNorthPoleCredentials, alwaysValid)
 	if err != nil {
 		return fmt.Sprintf("Error reading file: %s", err)
 	}
 
-	return fmt.Sprintf("The number of valid passports (excluding Country ID) is %v.", count)
+	return fmt.Sprintf("The number of valid passports, excluding Country ID, is %v.", count)
+}
+
+// Add validation logic to the expedited passport hacking
+func Problem2() string {
+	_, count, err := getPassports("day4/input.txt", isValidNorthPoleCredentials, isValidPassportField)
+	if err != nil {
+		return fmt.Sprintf("Error reading file: %s", err)
+	}
+
+	return fmt.Sprintf("The number of valid passports, excluding Country ID, is %v.", count)
 }
