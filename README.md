@@ -19,8 +19,11 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 ```The number of valid passwords is 727```
 
 ### Day 3
-**Problem 2 (79.447µs):**
+**Problem 1 (79.447µs):**
 ``` The number of trees in the path is 250.```
+
+**Problem 2 (97.441µs):**
+``````
 
 ## Full output
 ```
@@ -33,6 +36,7 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 2020/12/02 09:42:04 Day 2, Problem 2 function took 444.195µs. Output => The number of valid passwords is 727.
 **  Day 3 **
 2020/12/03 17:15:44 Day 3, Problem 1 function took 79.447µs. Output => The number of trees in the path is 250.
+2020/12/03 17:59:23 Day 3, Problem 2 function took 97.441µs. Output => The number of trees in each path is [55 250 54 55 39]. Multiplied together: 1592662500
 ```
 
 
