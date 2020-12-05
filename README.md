@@ -31,6 +31,10 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 **Problem 2 (895.548µs):**
 ```The number of valid passports, excluding Country ID, is 116.```
 
+### Day 5
+**Problem 1 (193.355µs):**
+```Maximum seat id is 930.```
+
 ## Full output
 ```
 *****     Advent of Code     *****   
@@ -46,6 +50,8 @@ Thanks, Eric Wastl, for giving me the opportunity to save Christmas - [Advent of
 ** Day 4 **
 2020/12/04 10:51:24 Day 4, Problem 1 function took 587.644µs. Output => The number of valid passports (excluding Country ID) is 200.
 2020/12/04 12:03:58 Day 4, Problem 2 function took 895.548µs. Output => The number of valid passports, excluding Country ID, is 116.
+** Day 5 **
+2020/12/04 23:27:27 Day 5, Problem 1 function took 193.355µs. Output => Maximum seat id is 930.
 ```
 
 
