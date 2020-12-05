@@ -38,7 +38,7 @@ func NewPassport (input string) *Passport {
 func NewPassportFromBinary(input uint16) *Passport {
 	raw := ""
 	for index := range []int{9, 8, 7, 6, 5, 4, 3, 2, 1, 0} {
-		raw += toString(input >> index, index > 2)
+		raw = toString(input >> index, index > 2) + raw
 	}
 
 	return NewPassport(raw)
@@ -55,9 +55,9 @@ func toBit(input uint8) uint16 {
 func toString(bit uint16, top bool) string {
 	if top {
 		if bit == 0 {
-			return "B"
+			return "F"
 		}
-		return "F"
+		return "B"
 	}
 
 	if bit == 1 {
@@ -109,4 +109,26 @@ func Problem1() string {
 	}
 
 	return fmt.Sprintf("Maximum seat id is %v.", scan.maxSeatId)
+}
+
+func Problem2() string {
+	scan, err := scanNearByPassports("day5/input.txt")
+	if err != nil {
+		return fmt.Sprintf("Error reading file: %s", err)
+	}
+
+	// Hacky. There should be a way to do this by xor-ing the bits, but I haven't found it yet.
+	available := make([]int, 1024)
+	for index := range scan.passports {
+		available[scan.passports[index].binary] = 1
+	}
+
+	seatId := 0
+	for index := range available {
+		if available[index] != 1 && index > 0 && available[index - 1] == 1 && index < len(available) -2 && available[index + 1] == 1 {
+			seatId = index
+		}
+	}
+
+	return fmt.Sprintf("My seat id is %v.", seatId)
 }
